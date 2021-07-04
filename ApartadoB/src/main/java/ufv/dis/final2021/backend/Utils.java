@@ -29,6 +29,30 @@ public class Utils {
 
     //TODO buscar ip fichero
 
+    public GeoIP locateIP(String ip, ArrayList<GeoIP> listGeoIP){
+
+        long longIP = Dot2LongIP(ip);
+        boolean found = false;
+        GeoIP foundItem = null;
+        int i = 0;
+
+        while(!found && i < listGeoIP.size()){
+            GeoIP item = listGeoIP.get(i);
+            if(longIP >= item.getIp_from() && longIP <= item.getIp_to()){
+                found = true;
+                foundItem = item;
+            }
+            i++;
+        }
+
+        if (foundItem != null){
+            return foundItem;
+        }
+        else {
+            return new GeoIP();
+        }
+    }
+
     public static String longToIp(long ip) {
 
         StringBuilder result = new StringBuilder(15);

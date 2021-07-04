@@ -40,6 +40,9 @@ public class MyUI extends UI {
             Utils utils = new Utils();
             ArrayList<GeoIP> jsonFile= utils.getFile();
             System.out.println(jsonFile.get(0));
+
+            GeoIP geoInfo = utils.locateIP("149.167.240.0", jsonFile);
+            System.out.println(geoInfo);
         });
         
         layout.addComponents(name, button);
