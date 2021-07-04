@@ -41,7 +41,7 @@ public class MyUI extends UI {
             ArrayList<GeoIP> jsonFile= utils.getFile();
             System.out.println(jsonFile.get(0));
 
-            GeoIP geoInfo = utils.locateIP("149.167.240.0", jsonFile);
+            GeoIP geoInfo = utils.locateIP("150.245.255.255", jsonFile);
             System.out.println(geoInfo);
         });
         
