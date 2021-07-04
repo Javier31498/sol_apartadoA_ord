@@ -11,6 +11,10 @@ import com.vaadin.ui.Label;
 import com.vaadin.ui.TextField;
 import com.vaadin.ui.UI;
 import com.vaadin.ui.VerticalLayout;
+import ufv.dis.final2021.backend.GeoIP;
+import ufv.dis.final2021.backend.Utils;
+
+import java.util.ArrayList;
 
 /**
  * This UI is the application entry point. A UI may either represent a browser window 
@@ -33,6 +37,9 @@ public class MyUI extends UI {
         button.addClickListener(e -> {
             layout.addComponent(new Label("Thanks " + name.getValue() 
                     + ", it works!"));
+            Utils utils = new Utils();
+            ArrayList<GeoIP> jsonFile= utils.getFile();
+            System.out.println(jsonFile.get(0));
         });
         
         layout.addComponents(name, button);
