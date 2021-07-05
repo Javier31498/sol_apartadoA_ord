@@ -18,16 +18,14 @@ public class GeoIP {
 
     @Override
     public String toString() {
-        return "GeoIP{" +
-                "country_code='" + country_code + '\'' +
-                ", country_name='" + country_name + '\'' +
-                ", region_name='" + region_name + '\'' +
-                ", city_name='" + city_name + '\'' +
-                ", latitude=" + latitude +
-                ", longitude=" + longitude +
-                ", zip_code='" + zip_code + '\'' +
-                ", time_zome='" + time_zome + '\'' +
-                '}';
+        return  "country_code:" + country_code + '\n' +
+                ", country_name:" + country_name + '\n' +
+                ", region_name:" + region_name + '\n' +
+                ", city_name:" + city_name + '\n' +
+                ", latitud:" + latitude +
+                ", longitude:" + longitude +
+                ", zip_code:" + zip_code + '\n' +
+                ", time_zome:" + time_zome + '\n';
     }
 
     public GeoIP() {

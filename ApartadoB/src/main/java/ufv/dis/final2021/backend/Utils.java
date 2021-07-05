@@ -12,7 +12,6 @@ import java.util.ArrayList;
 public class Utils {
 
     //TODO leer fichero json
-
     public static ArrayList<GeoIP> getFile(){
         Gson gson = new Gson();
 
@@ -28,10 +27,22 @@ public class Utils {
     }
 
     //TODO buscar ip fichero
-
-    public GeoIP locateIP(String ip, ArrayList<GeoIP> listGeoIP){
+    public GeoIP locateIP(String ip, ArrayList<GeoIP> listGeoIP) throws Exception{
+        if (ip == ""){
+            throw new Exception("Ip vacia");
+        }
 
         long longIP = Dot2LongIP(ip);
+        long above = Dot2LongIP(ip);
+        long below = Dot2LongIP("0.0.0.-1");
+
+        if (longIP >= (long)(4294967040.0)){
+            throw new Exception("Ip fuera de rango por arriba");
+        }
+        if (longIP < (long)(0.0)){
+            throw new Exception("Ip fuera de rango por debajo");
+        }
+
         boolean found = false;
         GeoIP foundItem = null;
         int i = 0;
